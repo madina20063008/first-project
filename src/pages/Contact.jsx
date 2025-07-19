@@ -14,7 +14,7 @@ const Contact = () => {
         <div>
             <PageHeader title="Contact us" current="Contact us" bg={BG} />
 
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto">
                 <div className="w-full mb-[50px] overflow-hidden">
                     <div className="rounded-[5px] mb-[50px]" style={{ backgroundColor: color.Blue }}>
 
