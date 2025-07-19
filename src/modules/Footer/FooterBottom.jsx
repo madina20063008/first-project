@@ -22,12 +22,12 @@ const FooterBottom = () => {
         <img src={Line} alt="Line" className="mt-[40px]" />
 
         <ul className="mt-[50px] flex flex-wrap justify-center gap-x-10 gap-y-4 text-white font-medium text-[16px] sm:text-[18px] lg:text-[20px] text-center px-4">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About us</a></li>
-          <li><a href="#management">Management</a></li>
-          <li><a href="#news">News & Event</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact us</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About us</a></li>
+          <li><a href="/management">Management</a></li>
+          <li><a href="/news">News & Event</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/contact">Contact us</a></li>
         </ul>
 
         <div className="flex flex-wrap justify-center mt-[40px] gap-[30px] sm:gap-[40px]">

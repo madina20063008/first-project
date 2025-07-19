@@ -14,3 +14,18 @@
 h5{
   font-family: "Rambla", sans-serif;
 }
+
+.who-we-are {
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  font-weight: medium;
+  color: #80c4d5;
+  font-family: Arial, sans-serif;
+  gap: 15px; 
+}
+
+.text {
+  text-transform: uppercase;
+}
+

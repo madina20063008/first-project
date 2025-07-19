@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Nav from './Nav';
+import Nav from '../../components/Nav';
 import { color } from '../../components/Color';
 import Button from '../../components/Button';
 import { Arrow, Ball, Music, Paint } from '../../assets/icons/icons';
@@ -8,8 +8,7 @@ import headerImg from '../../assets/images/header.png';
 
 const Header = () => {
     return (
-        <div id='home'>
-            <Nav />
+        <div>
             <div className="bg-[#EDEDED] min-h-[500px]">
                 <div className="container flex flex-col lg:flex-row justify-between items-center gap-10 py-[40px] lg:py-[81px]">
                     <div className="max-w-full lg:max-w-[500px] text-center lg:text-left">

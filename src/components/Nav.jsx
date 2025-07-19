@@ -1,26 +1,38 @@
 
-import React, { useState } from 'react';
-import { Dark } from '../../assets/icons/icons';
-import { color } from '../../components/Color';
-import { Menu, X } from 'lucide-react'; 
+import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+import { color } from './Color';
 
 const Nav = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activePath, setActivePath] = useState(window.location.pathname);
 
   const navLinks = [
-    { href: '#home', label: 'Home' },
-    { href: '#about', label: 'About us' },
-    { href: '#management', label: 'Management' },
-    { href: '#news', label: 'News & Event' },
-    { href: '#gallery', label: 'Gallery' },
-    { href: '#contact', label: 'Contact us' },
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About us' },
+    { href: '/management', label: 'Management' },
+    { href: '/news', label: 'News & Event' },
+    { href: '/gallery', label: 'Gallery' },
+    { href: '/contact', label: 'Contact us' },
   ];
 
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setActivePath(window.location.pathname);
+    };
+
+    window.addEventListener('popstate', handleRouteChange);
+
+    return () => {
+      window.removeEventListener('popstate', handleRouteChange);
+    };
+  }, []);
+
   return (
-    <div className="container relative">
+    <div className="container relative px-4 md:px-8 lg:px-0">
       <div className="flex justify-between items-center py-4">
-        <a href="/home" className="text-[24px] font-semibold">
+        <a href="/" className="text-[24px] font-semibold">
           Rapkhen
         </a>
 
@@ -35,8 +47,11 @@ const Nav = () => {
               <a
                 href={link.href}
                 style={{
-                  color: hoveredIndex === index ? color.Blue : 'inherit',
-                  fontWeight: hoveredIndex === index ? 600 : 400,
+                  color:
+                    hoveredIndex === index || activePath === link.href
+                      ? color.Blue
+                      : 'inherit',
+                  fontWeight: activePath === link.href ? '400' : 'normal',
                   transition: 'all 0.3s ease',
                 }}
               >
@@ -45,10 +60,6 @@ const Nav = () => {
             </li>
           ))}
         </ul>
-
-        <button className="ml-4">
-          <Dark />
-        </button>
 
         <div className="lg:hidden">
           <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
@@ -73,8 +84,9 @@ const Nav = () => {
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   style={{
-                    color: hoveredIndex === index ? color.Blue : 'inherit',
-                    fontWeight: hoveredIndex === index ? 600 : 400,
+                    color:
+                      activePath === link.href ? color.Blue : 'inherit',
+                    fontWeight: activePath === link.href ? '600' : 'normal',
                   }}
                 >
                   {link.label}

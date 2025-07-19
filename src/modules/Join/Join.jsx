@@ -5,7 +5,7 @@ import { color } from '../../components/Color';
 import Button from '../../components/Button';
 import { Arrow } from '../../assets/icons/icons';
 
-const FooterTop = () => {
+const Join = () => {
   return (
     <div
       className="bg-cover bg-center bg-no-repeat w-full min-h-[400px] sm:min-h-[450px] lg:min-h-[500px] flex items-center justify-center px-4 py-12 sm:py-16 lg:py-0"
@@ -43,4 +43,4 @@ const FooterTop = () => {
   );
 };
 
-export default FooterTop;
+export default Join;
