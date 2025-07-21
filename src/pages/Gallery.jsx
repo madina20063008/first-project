@@ -78,8 +78,10 @@ const Gallery = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-[35px]">
           {renderImage(Gallery3, 'w-full h-[260px] sm:h-[300px]')}
           {renderImage(Gallery4, 'w-full h-[260px] sm:h-[300px]')}
-          {renderImage(Children, 'w-full h-[260px] sm:h-[300px]')}
+          {renderImage(Children, 'w-full h-[260px] sm:h-[300px] md:hidden lg:block')}
         </div>
+
+
         <div className="flex flex-col lg:flex-row gap-4 mb-[35px]">
           {renderImage(Gallery10, 'w-full lg:w-[66%] h-[200px] sm:h-[250px] lg:h-[330px]')}
           {renderImage(Gallery11, 'w-full lg:w-[33%] h-[200px] sm:h-[250px] lg:h-[330px]')}
@@ -87,8 +89,10 @@ const Gallery = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-[35px]">
           {renderImage(Gallery12, 'w-full h-[260px] sm:h-[300px]')}
           {renderImage(Gallery6, 'w-full h-[260px] sm:h-[300px]')}
-          {renderImage(Gallery13, 'w-full h-[260px] sm:h-[300px]')}
+          {renderImage(Gallery13, 'w-full h-[260px] sm:h-[300px] md:hidden lg:block')}
         </div>
+
+
 
         <div className="flex items-center justify-between">
           <div className="flex">
