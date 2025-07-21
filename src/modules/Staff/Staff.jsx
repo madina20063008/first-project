@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 import Person1 from '../../assets/images/person1.png';
@@ -24,23 +24,76 @@ const staffList = [
   { img: Person4, role: 'Teacher' },
 ];
 
-const groupSlides = [];
-for (let i = 0; i < 12; i += 4) {
-  groupSlides.push(staffList.slice(i, i + 4));
-}
-
 const Staff = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [groupSize, setGroupSize] = useState(4);
+  const timer = useRef();
 
-  const [sliderRef, instanceRef] = useKeenSlider({
-    loop: true,
-    slideChanged(s) {
-      setCurrentSlide(s.track.details.rel);
+  useEffect(() => {
+    const updateGroupSize = () => {
+      const width = window.innerWidth;
+      if (width < 640) setGroupSize(1);    
+      else if (width < 1024) setGroupSize(2); 
+      else setGroupSize(4);                    
+    };
+
+    updateGroupSize();
+    window.addEventListener('resize', updateGroupSize);
+    return () => window.removeEventListener('resize', updateGroupSize);
+  }, []);
+
+  const [sliderRef, instanceRef] = useKeenSlider(
+    {
+      loop: true,
+      slideChanged(s) {
+        setCurrentSlide(s.track.details.rel);
+      },
     },
-    slides: {
-      perView: 1,
-    },
-  });
+    [
+      (slider) => {
+        let timeout;
+        let mouseOver = false;
+
+        function clearNextTimeout() {
+          clearTimeout(timeout);
+        }
+
+        function nextTimeout() {
+          clearTimeout(timeout);
+          if (mouseOver) return;
+          timeout = setTimeout(() => {
+            slider.next();
+          }, 1000);
+        }
+
+        slider.on("created", () => {
+          slider.container.addEventListener("mouseover", () => {
+            mouseOver = true;
+            clearNextTimeout();
+          });
+          slider.container.addEventListener("mouseout", () => {
+            mouseOver = false;
+            nextTimeout();
+          });
+          nextTimeout();
+        });
+
+        slider.on("dragStarted", clearNextTimeout);
+        slider.on("animationEnded", nextTimeout);
+        slider.on("updated", nextTimeout);
+      },
+    ]
+  );
+
+  const groupSlides = [...Array(Math.ceil(staffList.length / groupSize))].map((_, i) =>
+    staffList.slice(i * groupSize, i * groupSize + groupSize)
+  );
+
+  const getGridCols = () => {
+    if (groupSize === 1) return 'flex justify-center';
+    if (groupSize === 2) return 'grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 place-items-center';
+    return 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10 place-items-center';
+  };
 
   return (
     <div className="bg-[#EDEDED] pb-6">
@@ -49,12 +102,10 @@ const Staff = () => {
           MEET&nbsp;&nbsp;OUR&nbsp;&nbsp;
           <span style={{ color: '#98d6e9' }}>STAFF</span>
         </h2>
+
         <div ref={sliderRef} className="keen-slider">
           {groupSlides.map((group, index) => (
-            <div
-              key={index}
-              className="keen-slider__slide grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10 place-items-center"
-            >
+            <div key={index} className={`keen-slider__slide ${getGridCols()}`}>
               {group.map((person, idx) => (
                 <div key={idx} className="w-[224px] flex flex-col items-center">
                   <img
@@ -100,5 +151,3 @@ const Staff = () => {
 };
 
 export default Staff;
-
-

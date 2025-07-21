@@ -21,6 +21,8 @@ const staffListFive = [
     { img: Person4, name: 'Afuwape J. Abiodun', role: 'Teacher' },
     { img: Person1, name: 'Afuwape J. Abiodun', role: 'Teacher' },
     { img: Person3, name: 'Afuwape J. Abiodun', role: 'Teacher' },
+    { img: Person1, name: 'Afuwape J. Abiodun', role: 'Teacher' },
+    { img: Person4, name: 'Afuwape J. Abiodun', role: 'Teacher' },
 ];
 
 const staffListFour = [
@@ -93,14 +95,14 @@ const Management = () => {
             <div className="bg-[#F2F2F2]">
                 <div className="container">
                     <div>
-                        <div className="who-we-are flex items-center gap-4 text-[#80C4D3] font-medium text-[18px] uppercase py-[50px]">
+                        <div className="who-we-are flex items-center justify-center lg:justify-start gap-4 text-[#80C4D3] font-medium text-[18px] uppercase py-[50px]">
                             <span>•</span>
                             <span>Meet our management</span>
                             <span>•</span>
                         </div>
                         <div className="pb-10">
                             <div className="container pt-[12px]">
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 place-items-center">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 place-items-center">
                                     {staffList.map((person, idx) => (
                                         <Card key={idx} {...person} />
                                     ))}
@@ -110,24 +112,16 @@ const Management = () => {
                     </div>
 
                     <div>
-                        <div className="who-we-are flex items-center gap-4 text-[#80C4D3] font-medium text-[18px] uppercase py-[50px]">
+                        <div className="who-we-are flex items-center justify-center lg:justify-start gap-4 text-[#80C4D3] font-medium text-[18px] uppercase py-[50px]">
                             <span>•</span>
                             <span>Our advisory board</span>
                             <span>•</span>
                         </div>
+                       
                         <div className="pb-10">
                             <div className="container pt-[12px]">
-                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 place-items-center">
-                                    {staffListFour.map((person, idx) => (
-                                        <Card key={idx} {...person} />
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                        <div className="pb-10">
-                            <div className="container pt-[12px]">
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 place-items-center">
-                                    {staffList.map((person, idx) => (
+                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-x-6 gap-y-10 place-items-center">
+                                    {staffListFive.map((person, idx) => (
                                         <Card key={idx} {...person} />
                                     ))}
                                 </div>
@@ -136,14 +130,14 @@ const Management = () => {
                     </div>
 
                     <div>
-                        <div className="who-we-are flex items-center gap-4 text-[#80C4D3] font-medium text-[18px] uppercase py-[50px]">
+                        <div className="who-we-are flex items-center justify-center lg:justify-start gap-4 text-[#80C4D3] font-medium text-[18px] uppercase py-[50px]">
                             <span>•</span>
                             <span>Meet our NON-Staff</span>
                             <span>•</span>
                         </div>
                         <div className="pb-10">
                             <div className="container pt-[12px]">
-                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 place-items-center">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-10 place-items-center">
                                     {staffListFour.map((person, idx) => (
                                         <Card key={idx} {...person} />
                                     ))}
@@ -159,7 +153,3 @@ const Management = () => {
 };
 
 export default Management;
-
-
-
-

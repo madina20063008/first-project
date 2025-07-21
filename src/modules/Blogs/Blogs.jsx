@@ -56,9 +56,11 @@ const Blogs = () => {
                         <p className='text-[30px] font-bold'>10</p>
                     </div>
                 </div>
+
             </div>
 
-            <div className="flex">
+
+            <div className="flex justify-center lg:justify-start">
                 <Button
                     text="More Articles"
                     icon={<Arrow />}
@@ -67,10 +69,12 @@ const Blogs = () => {
                         borderRadius: '5px',
                         display: 'flex',
                         gap: '15px',
-                        marginBottom: '50px'
+                        marginBottom: '50px',
+                        justifyContent: 'center'
                     }}
                 />
             </div>
+
         </div>
     )
 }

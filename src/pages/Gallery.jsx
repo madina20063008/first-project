@@ -65,11 +65,12 @@ const Gallery = () => {
       <PageHeader title="Gallery" current="Gallery" bg={BG} />
 
       <div className="container pt-[34px] !mb-[50px]">
-        <div className="who-we-are mb-[50px] flex items-center lg:justify-start justify-center gap-4 text-[#80C4D3] font-medium text-[18px] uppercase">
+        <div className="who-we-are mb-[50px] flex items-center justify-center gap-4 text-[#80C4D3] font-medium text-[18px] max-sm:text-[16px]  lg:justify-start uppercase">
           <span>•</span>
           <span>The school gallery</span>
           <span>•</span>
         </div>
+
         <div className="flex flex-col lg:flex-row gap-4 mb-[35px]">
           {renderImage(Gallery1, 'w-full lg:w-[66%] h-[200px] sm:h-[250px] lg:h-[330px]')}
           {renderImage(Gallery2, 'w-full lg:w-[33%] h-[200px] sm:h-[250px] lg:h-[330px]')}

@@ -153,7 +153,7 @@ const NewsCards = () => {
           ))}
         </div>
 
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between px-4 sm:px-6 lg:px-0">
           <div className="flex">
             <button
               onClick={handlePrev}
