@@ -9,13 +9,14 @@ import Gallery7 from '../../assets/images/gallery7.png'
 import Children from '../../assets/images/children.png'
 import { Arrow } from '../../assets/icons/icons'
 import Button from '../../components/Button'
+import { useNavigate } from 'react-router-dom'
 
 const Gallery = () => {
     const [modalImage, setModalImage] = useState(null)
 
     const openModal = (img) => setModalImage(img)
     const closeModal = () => setModalImage(null)
-
+    const navigate = useNavigate();
     const renderImage = (imgSrc, classes) => (
         <div
             className={`relative group overflow-hidden cursor-pointer ${classes}`}
@@ -68,6 +69,8 @@ const Gallery = () => {
                     text="More Photos"
                     icon={<Arrow />}
                     style={{ width: '215px', borderRadius: '5px', display: 'flex', gap: '15px', marginBottom: '50px' }}
+                    onClick={() => navigate('/gallery')}
+
                 />
             </div>
 

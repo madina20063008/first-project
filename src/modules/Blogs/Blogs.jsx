@@ -5,8 +5,10 @@ import { Arrow, Message } from '../../assets/icons/icons'
 import Playing from '../../assets/images/playing.png'
 import Children from '../../assets/images/children.png'
 import Button from '../../components/Button'
+import { useNavigate } from 'react-router-dom'
 
 const Blogs = () => {
+    const navigate = useNavigate();
     return (
         <div className='container pt-[34px]'>
             <h2 className="text-[30px] font-medium pb-[50px] text-center lg:text-left">
@@ -70,6 +72,7 @@ const Blogs = () => {
                         marginBottom: '50px',
                         justifyContent: 'center'
                     }}
+                    onClick={() => navigate('/news')}
                 />
             </div>
         </div>

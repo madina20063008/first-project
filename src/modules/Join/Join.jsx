@@ -4,8 +4,10 @@ import BgImage from '../../assets/images/Background.png';
 import { color } from '../../components/Color';
 import Button from '../../components/Button';
 import { Arrow } from '../../assets/icons/icons';
+import { useNavigate } from 'react-router-dom';
 
 const Join = () => {
+    const navigate = useNavigate();
   return (
     <div
       className="bg-cover bg-center bg-no-repeat w-full min-h-[400px] sm:min-h-[450px] lg:min-h-[500px] flex items-center justify-center px-4 py-12 sm:py-16 lg:py-0"
@@ -36,6 +38,8 @@ const Join = () => {
               gap: '15px',
               justifyContent: 'center',
             }}
+            onClick={() => navigate('/contact')}
+
           />
         </div>
       </div>

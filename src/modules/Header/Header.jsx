@@ -5,8 +5,10 @@ import { color } from '../../components/Color';
 import Button from '../../components/Button';
 import { Arrow, Ball, Music, Paint } from '../../assets/icons/icons';
 import headerImg from '../../assets/images/header.png';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+    const navigate = useNavigate();
     return (
         <div>
             <div className="bg-[#EDEDED] min-h-[500px]">
@@ -24,6 +26,7 @@ const Header = () => {
                                 text="More info"
                                 icon={<Arrow />}
                                 style={{ width: '186px', borderRadius: '5px', display: 'flex', gap: '15px' }}
+                                onClick={() => navigate('/about')}
                             />
                         </div>
                     </div>
