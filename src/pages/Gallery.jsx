@@ -65,7 +65,7 @@ const Gallery = () => {
       <PageHeader title="Gallery" current="Gallery" bg={BG} />
 
       <div className="container pt-[34px] !mb-[50px]">
-        <div className="who-we-are mb-[50px] flex items-center justify-center gap-4 text-[#80C4D3] font-medium text-[18px] max-sm:text-[16px]  lg:justify-start uppercase">
+        <div className="who-we-are mb-[50px] flex items-center justify-center gap-4 text-[#80C4D3] font-medium text-[18px] max-sm:text-[24px]  lg:justify-start uppercase">
           <span>•</span>
           <span>The school gallery</span>
           <span>•</span>
@@ -94,7 +94,7 @@ const Gallery = () => {
 
 
 
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between px-2 sm:px-0">
           <div className="flex">
             <button
               onClick={handlePrev}
@@ -142,17 +142,24 @@ const Gallery = () => {
 
       <Newsletter />
       {modalImage && (
-        <div
-          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
-          onClick={closeModal}
-        >
-          <img
-            src={modalImage}
-            alt="Expanded gallery item"
-            className="max-w-[90%] max-h-[80%] rounded-md"
-          />
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
+          <div className="relative max-w-[90%] max-h-[80%]">
+            <button
+              onClick={closeModal}
+              className="absolute top-2 right-2 bg-white text-black rounded-full w-8 h-8 flex items-center justify-center text-xl font-bold shadow-md hover:bg-gray-200 transition"
+            >
+              &times;
+            </button>
+            <img
+              src={modalImage}
+              alt="Expanded gallery item"
+              className="w-full h-full object-contain rounded-md"
+            />
+          </div>
         </div>
       )}
+
+
     </div>
   );
 };

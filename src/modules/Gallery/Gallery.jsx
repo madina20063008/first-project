@@ -72,15 +72,20 @@ const Gallery = () => {
             </div>
 
             {modalImage && (
-                <div
-                    className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center"
-                    onClick={closeModal}
-                >
-                    <img
-                        src={modalImage}
-                        alt="modal"
-                        className="max-w-[90%] max-h-[80%] rounded-md"
-                    />
+                <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
+                    <div className="relative max-w-[90%] max-h-[80%]">
+                        <button
+                            onClick={closeModal}
+                            className="absolute top-2 right-2 bg-white text-black rounded-full w-8 h-8 flex items-center justify-center text-xl font-bold shadow-md hover:bg-gray-200 transition"
+                        >
+                            &times;
+                        </button>
+                        <img
+                            src={modalImage}
+                            alt="Expanded gallery item"
+                            className="w-full h-full object-contain rounded-md"
+                        />
+                    </div>
                 </div>
             )}
         </div>

@@ -17,7 +17,7 @@ const Blogs = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[110px] mb-[50px] place-items-center">
                 <div className="max-w-[300px] max-h-[550px]">
                     <img src={Boy} alt="boy" className="w-[300px] h-[238px] object-cover" />
-                    <p className='text-[20px] mt-[20px]'>
+                    <p className='text-[16px] sm:text-[20px] mt-[20px]'>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                     </p>
                     <p className='text-[20px] mt-[20px] font-medium'>
@@ -31,7 +31,7 @@ const Blogs = () => {
 
                 <div className="max-w-[300px] max-h-[550px]">
                     <img src={Children} alt="children" className="w-[300px] h-[330px] object-cover" />
-                    <p className='text-[20px] mt-[20px]'>
+                    <p className='text-[16px] sm:text-[20px] mt-[20px]'>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do...
                     </p>
                     <p className='text-[20px] mt-[20px] font-medium'>
@@ -45,7 +45,7 @@ const Blogs = () => {
 
                 <div className="max-w-[300px] max-h-[550px]">
                     <img src={Playing} alt="playing" className="w-[300px] h-[240px] object-cover" />
-                    <p className='text-[20px] mt-[20px]'>
+                    <p className='text-[16px] sm:text-[20px] mt-[20px]'>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                     </p>
                     <p className='text-[20px] mt-[20px] font-medium'>
@@ -56,9 +56,7 @@ const Blogs = () => {
                         <p className='text-[30px] font-bold'>10</p>
                     </div>
                 </div>
-
             </div>
-
 
             <div className="flex justify-center lg:justify-start">
                 <Button
@@ -74,7 +72,6 @@ const Blogs = () => {
                     }}
                 />
             </div>
-
         </div>
     )
 }

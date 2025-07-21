@@ -59,7 +59,7 @@ const Management = () => {
 
                 <div className="flex flex-col-reverse lg:flex-row lg:justify-between mb-[50px] gap-8 lg:gap-0 items-center lg:items-start text-center lg:text-left">
                     <div>
-                        <div className="who-we-are flex items-center lg:justify-start justify-center gap-4 text-[#80C4D3] font-medium text-[18px] uppercase">
+                        <div className="who-we-are flex items-center lg:justify-start justify-center gap-4 text-[#80C4D3] font-medium text-[24px] uppercase">
                             <span>•</span>
                             <span>the Founder</span>
                             <span>•</span>
@@ -95,7 +95,7 @@ const Management = () => {
             <div className="bg-[#F2F2F2]">
                 <div className="container">
                     <div>
-                        <div className="who-we-are flex items-center justify-center lg:justify-start gap-4 text-[#80C4D3] font-medium text-[18px] uppercase py-[50px]">
+                        <div className="who-we-are flex items-center justify-center lg:justify-start gap-4 text-[#80C4D3] font-medium text-[24px] uppercase py-[50px]">
                             <span>•</span>
                             <span>Meet our management</span>
                             <span>•</span>
@@ -112,7 +112,7 @@ const Management = () => {
                     </div>
 
                     <div>
-                        <div className="who-we-are flex items-center justify-center lg:justify-start gap-4 text-[#80C4D3] font-medium text-[18px] uppercase py-[50px]">
+                        <div className="who-we-are flex items-center justify-center lg:justify-start gap-4 text-[#80C4D3] font-medium text-[24px] uppercase py-[50px]">
                             <span>•</span>
                             <span>Our advisory board</span>
                             <span>•</span>
@@ -130,7 +130,7 @@ const Management = () => {
                     </div>
 
                     <div>
-                        <div className="who-we-are flex items-center justify-center lg:justify-start gap-4 text-[#80C4D3] font-medium text-[18px] uppercase py-[50px]">
+                        <div className="who-we-are flex items-center justify-center lg:justify-start gap-4 text-[#80C4D3] font-medium text-[24px] uppercase py-[50px]">
                             <span>•</span>
                             <span>Meet our NON-Staff</span>
                             <span>•</span>

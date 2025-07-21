@@ -19,7 +19,7 @@ const About = () => {
             className="w-full lg:w-[550px] h-auto lg:h-[450px] object-cover mx-auto lg:mx-0" 
           />
           <div className="w-full lg:max-w-[501px] mt-6 lg:mt-0">
-            <div className="who-we-are flex items-center justify-center lg:justify-start gap-4 text-[#80C4D3] font-medium text-[18px] uppercase">
+            <div className="who-we-are flex items-center justify-center lg:justify-start gap-4 text-[#80C4D3] font-medium text-[24px] uppercase">
               <span>•</span>
               <span>WHO WE ARE</span>
               <span>•</span>

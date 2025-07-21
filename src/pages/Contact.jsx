@@ -19,7 +19,7 @@ const Contact = () => {
                     <div className="rounded-[5px] mb-[50px]" style={{ backgroundColor: color.Blue }}>
 
                         <div className="flex flex-wrap justify-between">
-                   
+
                             <div className="p-[30px] w-full lg:w-1/2 flex justify-center flex-wrap lg:justify-start">
                                 <div className="max-w-[414px] w-full">
                                     <div className="who-we-are mb-[30px] flex items-center justify-center lg:justify-start gap-4 text-white font-medium text-[18px] uppercase" style={{ color: 'white' }}>
@@ -72,22 +72,23 @@ const Contact = () => {
                                     <input
                                         type="text"
                                         placeholder="Name"
-                                        className="w-full h-[80px] rounded-[5px] p-[20px]"
+                                        className="w-full h-[64px] sm:h-[80px] rounded-[5px] p-[16px] sm:p-[20px]"
                                     />
                                     <input
                                         type="email"
                                         placeholder="Email"
-                                        className="w-full h-[80px] rounded-[5px] p-[20px] mt-[30px]"
+                                        className="w-full h-[64px] sm:h-[80px] rounded-[5px] p-[16px] sm:p-[20px] mt-[30px]"
                                     />
                                     <input
                                         type="text"
                                         placeholder="Subject"
-                                        className="w-full h-[80px] rounded-[5px] p-[20px] mt-[30px]"
+                                        className="w-full h-[64px] sm:h-[80px] rounded-[5px] p-[16px] sm:p-[20px] mt-[30px]"
                                     />
                                     <textarea
                                         placeholder="Mesaage here..."
-                                        className="w-full h-[185px] rounded-[5px] p-[20px] mt-[30px]"
+                                        className="w-full h-[140px] sm:h-[185px] rounded-[5px] p-[16px] sm:p-[20px] mt-[30px]"
                                     ></textarea>
+
 
                                     <div className="mt-[30px] w-full flex justify-center lg:justify-end">
                                         <Button

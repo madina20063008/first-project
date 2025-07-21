@@ -135,7 +135,9 @@ const NewsCards = () => {
                 alt="blog"
                 className="w-[300px] h-[238px] object-cover"
               />
-              <p className="text-[20px] mt-[20px] line-clamp-3">{post.text}</p>
+              <p className="text-[16px] sm:text-[20px] mt-[20px] line-clamp-3">
+                {post.text}
+              </p>
               <p className="text-[20px] mt-[20px] font-medium">{post.date}</p>
               <div className="flex justify-between items-center mt-[20px]">
                 <div className="flex gap-[10px] items-center">
@@ -171,8 +173,10 @@ const NewsCards = () => {
             </button>
           </div>
 
-          <div className="relative flex items-center  rounded">
-            <span className="px-4 py-2 text-white select-none bg-[#8CC9D5] mr-[2px]">Page</span>
+          <div className="relative flex items-center rounded">
+            <span className="px-4 py-2 text-white select-none bg-[#8CC9D5] mr-[2px]">
+              Page
+            </span>
             <select
               className="px-4 py-2 pr-8 rounded-r bg-[#8CC9D5] text-white focus:outline-none appearance-none"
               value={currentPage}
@@ -209,4 +213,3 @@ const NewsCards = () => {
 };
 
 export default NewsCards;
-
