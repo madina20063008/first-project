@@ -32,9 +32,9 @@ const Staff = () => {
   useEffect(() => {
     const updateGroupSize = () => {
       const width = window.innerWidth;
-      if (width < 640) setGroupSize(1);    
-      else if (width < 1024) setGroupSize(2); 
-      else setGroupSize(4);                    
+      if (width < 640) setGroupSize(1);
+      else if (width < 1024) setGroupSize(2);
+      else setGroupSize(4);
     };
 
     updateGroupSize();
@@ -131,20 +131,21 @@ const Staff = () => {
         </div>
 
         <div className="flex justify-center items-center mt-6">
-  <div className="flex gap-2 sm:gap-4">
-    {groupSlides.map((_, idx) => (
-      <button
-        key={idx}
-        onClick={() => instanceRef.current?.moveToIdx(idx)}
-        className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full border-2 border-[#7cc5d8] flex items-center justify-center transition-all`}
-      >
-        {idx === currentSlide && (
-          <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#7cc5d8]" />
-        )}
-      </button>
-    ))}
-  </div>
-</div>
+          <div className="flex gap-1 sm:gap-4">
+            {groupSlides.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => instanceRef.current?.moveToIdx(idx)}
+                className={`w-2.5 h-2.5 sm:w-5 sm:h-5 rounded-full border border-[#7cc5d8] sm:border-2 flex items-center justify-center transition-all`}
+              >
+                {idx === currentSlide && (
+                  <span className="w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-[#7cc5d8]" />
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+
 
       </div>
     </div>
