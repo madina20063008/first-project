@@ -11,7 +11,7 @@ import Contact3 from '../assets/images/contact3.png';
 const Contact = () => {
   const [contactData, setContactData] = useState(null);
   const [formData, setFormData] = useState({
-    name: '',
+    full_name: '',
     email: '',
     subject: '',
     message: '',
@@ -40,7 +40,7 @@ const Contact = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('https://educationalwebsite.pythonanywhere.com/contact/create/', {
+      const response = await fetch('https://educationalwebsite.pythonanywhere.com/education/contact/create/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ const Contact = () => {
 
       if (response.ok) {
         showToast('Your message has been sent successfully!', true);
-        setFormData({ name: '', email: '', subject: '', message: '' });
+        setFormData({ full_name: '', email: '', subject: '', message: '' });
       } else {
         const data = await response.json();
         const errorMsg = data?.message || 'Failed to send your message. Please try again.';
@@ -85,7 +85,6 @@ const Contact = () => {
                     <span>•</span>
                   </div>
 
-                  {/* Phone */}
                   <div className="bg-white rounded-[10px] w-full min-h-[180px] p-[30px] flex gap-[18px] flex-wrap">
                     <img src={Contact1} alt="phone" className="max-w-[80px]" />
                     <div>
@@ -98,7 +97,6 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  {/* Email */}
                   <div className="bg-white rounded-[10px] w-full min-h-[180px] p-[30px] flex gap-[18px] mt-[30px] flex-wrap">
                     <img src={Contact2} alt="email" className="max-w-[80px]" />
                     <div>
@@ -111,7 +109,6 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  {/* Location */}
                   <div className="bg-white rounded-[10px] w-full min-h-[180px] p-[30px] flex flex-wrap gap-[18px] mt-[30px]">
                     <img src={Contact3} alt="location" className="max-w-[80px]" />
                     <div>
@@ -126,7 +123,6 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Contact Form Section */}
               <div className="p-[30px] w-full lg:w-1/2 flex justify-center">
                 <div className="flex flex-col items-center lg:items-start max-w-[480px] w-full">
                   <div className="who-we-are mb-[30px] flex items-center justify-center lg:justify-start gap-4 text-white font-medium text-[18px] uppercase" style={{ color: 'white' }}>
@@ -137,9 +133,9 @@ const Contact = () => {
 
                   <input
                     type="text"
-                    name="name"
-                    placeholder="Name"
-                    value={formData.name}
+                    name="full_name"
+                    placeholder="Full name"
+                    value={formData.full_name}
                     onChange={handleChange}
                     className="w-full h-[64px] sm:h-[80px] rounded-[5px] p-[16px] sm:p-[20px]"
                   />
@@ -181,7 +177,6 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Google Map */}
           <div className="flex justify-center">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d539111.8987128875!2d69.47539407912477!3d41.267160872657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1752955653751!5m2!1sen!2s"
