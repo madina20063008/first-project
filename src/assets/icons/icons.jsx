@@ -161,7 +161,7 @@ export const Person = () => {
 export const Clock = () => {
     return (
         <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_441_1298)">
+            <g clipPath="url(#clip0_441_1298)">
                 <path d="M12.5 0.390625C5.81055 0.390625 0.390625 5.81055 0.390625 12.5C0.390625 19.1895 5.81055 24.6094 12.5 24.6094C19.1895 24.6094 24.6094 19.1895 24.6094 12.5C24.6094 5.81055 19.1895 0.390625 12.5 0.390625ZM15.2881 17.4854L10.9814 14.3555C10.8301 14.2432 10.7422 14.0674 10.7422 13.8818V5.66406C10.7422 5.3418 11.0059 5.07812 11.3281 5.07812H13.6719C13.9941 5.07812 14.2578 5.3418 14.2578 5.66406V12.3877L17.3584 14.6436C17.6221 14.834 17.6758 15.2002 17.4854 15.4639L16.1084 17.3584C15.918 17.6172 15.5518 17.6758 15.2881 17.4854Z" fill="black" />
             </g>
             <defs>
@@ -169,6 +169,16 @@ export const Clock = () => {
                     <rect width="25" height="25" fill="white" />
                 </clipPath>
             </defs>
+        </svg>
+
+    )
+}
+
+export const Search = () => {
+    return (
+        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.334 19.4699C15.7523 19.4699 19.334 15.8536 19.334 11.3927C19.334 6.93182 15.7523 3.31555 11.334 3.31555C6.91571 3.31555 3.33398 6.93182 3.33398 11.3927C3.33398 15.8536 6.91571 19.4699 11.334 19.4699Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M21.3339 21.4893L16.9839 17.0973" stroke="white" strokeWidth="2" strokewinecap="round" strokeWinejoin="round" />
         </svg>
 
     )

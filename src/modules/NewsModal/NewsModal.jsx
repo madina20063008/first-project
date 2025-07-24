@@ -1,7 +1,10 @@
+
 import React from 'react';
 
 const NewsModal = ({ open, onClose, post }) => {
   if (!open || !post) return null;
+
+  const imageUrl = post.images?.[0]?.image || '';
 
   return (
     <div
@@ -18,21 +21,22 @@ const NewsModal = ({ open, onClose, post }) => {
           ×
         </button>
 
-        <img
-          src={post.img}
-          alt={post.title}
-          className="w-full max-h-[400px] object-cover"
-        />
+        {imageUrl && (
+          <img
+            src={imageUrl}
+            alt={post.title}
+            className="w-full max-h-[400px] object-cover"
+          />
+        )}
 
         <div className="p-6">
-          {post.type && (
-            <div className="text-xs tracking-wide uppercase font-medium text-[#80C4D3] mb-2">
-              {post.type}
-            </div>
-          )}
-          <h2 className="text-xl font-bold mb-4">{post.title}</h2>
+          <div className="text-xs tracking-wide uppercase font-medium text-[#80C4D3] mb-2">
+            {post.type || 'NEWS'}
+          </div>
+          <h2 className="text-xl font-bold mb-2">{post.title}</h2>
+          <p className="text-sm text-gray-500 mb-4">{post.date}</p>
           <p className="text-[16px] leading-relaxed whitespace-pre-line">
-            {post.body}
+            {post.description}
           </p>
         </div>
       </div>

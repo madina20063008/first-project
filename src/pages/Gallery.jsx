@@ -1,26 +1,30 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import PageHeader from '../components/PageHeader';
 import Newsletter from '../modules/Newsletter/Newsletter';
 
 import BG from '../assets/images/bg.png';
-import Gallery1 from '../assets/images/gallery1.png';
-import Gallery2 from '../assets/images/gallery2.png';
-import Gallery3 from '../assets/images/gallery3.png';
-import Gallery4 from '../assets/images/gallery4.png';
-import Gallery6 from '../assets/images/gallery6.png';
-import Gallery7 from '../assets/images/gallery7.png';
-import Children from '../assets/images/children.png';
-import Gallery10 from '../assets/images/gallery10.png';
-import Gallery11 from '../assets/images/gallery11.png';
-import Gallery12 from '../assets/images/gallery12.png';
-import Gallery13 from '../assets/images/gallery13.png';
 
 const Gallery = () => {
+  const [galleryItems, setGalleryItems] = useState([]);
   const [modalImage, setModalImage] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 3;
+  const itemsPerPage = 9;
+
+  useEffect(() => {
+    axios
+      .get('https://educationalwebsite.pythonanywhere.com/education/gallery/')
+      .then((res) => {
+        setGalleryItems(res.data);
+      })
+      .catch((err) => {
+        console.error('Error fetching gallery data:', err);
+      });
+  }, []);
+
+  const totalPages = Math.ceil(galleryItems.length / itemsPerPage);
 
   const openModal = (img) => setModalImage(img);
   const closeModal = () => setModalImage(null);
@@ -29,19 +33,25 @@ const Gallery = () => {
   const handleNext = () => setCurrentPage((p) => (p < totalPages ? p + 1 : p));
   const handleGoTo = (page) => setCurrentPage(page);
 
-  const renderImage = (imgSrc, classes) => (
+  const paginatedItems = galleryItems.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const renderImage = (item, index) => (
     <div
-      key={imgSrc}
-      className={`relative group overflow-hidden cursor-pointer ${classes}`}
-      onClick={() => openModal(imgSrc)}
+      key={index}
+      className="relative group overflow-hidden cursor-pointer w-full h-[260px] sm:h-[300px] lg:h-[330px]"
+      onClick={() => openModal(item.image)}
     >
       <img
-        src={imgSrc}
-        alt="gallery item"
+        src={item.image}
+        alt={`gallery ${index}`}
         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
       />
       <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className="text-white text-center px-4">
+          {/* Search icon */}
           <svg
             className="mx-auto w-8 h-8 mb-2"
             fill="none"
@@ -52,8 +62,9 @@ const Gallery = () => {
             <circle cx="11" cy="11" r="8" />
             <line x1="21" y1="21" x2="16.65" y2="16.65" />
           </svg>
+          {/* Description */}
           <p className="text-white text-lg font-medium leading-snug">
-            Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit.
+            {item.description || 'No description'}
           </p>
         </div>
       </div>
@@ -65,34 +76,15 @@ const Gallery = () => {
       <PageHeader title="Gallery" current="Gallery" bg={BG} />
 
       <div className="container pt-[34px] !mb-[50px]">
-        <div className="who-we-are mb-[50px] flex items-center justify-center gap-4 text-[#80C4D3] font-medium text-[18px] max-sm:text-[24px]  lg:justify-start uppercase">
+        <div className="who-we-are mb-[50px] flex items-center justify-center gap-4 text-[#80C4D3] font-medium text-[18px] max-sm:text-[24px] lg:justify-start uppercase">
           <span>•</span>
           <span>The school gallery</span>
           <span>•</span>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-4 mb-[35px]">
-          {renderImage(Gallery1, 'w-full lg:w-[66%] h-[200px] sm:h-[250px] lg:h-[330px]')}
-          {renderImage(Gallery2, 'w-full lg:w-[33%] h-[200px] sm:h-[250px] lg:h-[330px]')}
-        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-[35px]">
-          {renderImage(Gallery3, 'w-full h-[260px] sm:h-[300px]')}
-          {renderImage(Gallery4, 'w-full h-[260px] sm:h-[300px]')}
-          {renderImage(Children, 'w-full h-[260px] sm:h-[300px] md:hidden lg:block')}
+          {paginatedItems.map(renderImage)}
         </div>
-
-
-        <div className="flex flex-col lg:flex-row gap-4 mb-[35px]">
-          {renderImage(Gallery10, 'w-full lg:w-[66%] h-[200px] sm:h-[250px] lg:h-[330px]')}
-          {renderImage(Gallery11, 'w-full lg:w-[33%] h-[200px] sm:h-[250px] lg:h-[330px]')}
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-[35px]">
-          {renderImage(Gallery12, 'w-full h-[260px] sm:h-[300px]')}
-          {renderImage(Gallery6, 'w-full h-[260px] sm:h-[300px]')}
-          {renderImage(Gallery13, 'w-full h-[260px] sm:h-[300px] md:hidden lg:block')}
-        </div>
-
-
 
         <div className="flex items-center justify-between px-2 sm:px-0">
           <div className="flex">
@@ -119,9 +111,9 @@ const Gallery = () => {
               value={currentPage}
               onChange={(e) => handleGoTo(Number(e.target.value))}
             >
-              {[1, 2, 3].map((page) => (
-                <option key={page} value={page} className="bg-[#8CC9D5] text-white">
-                  {page}
+              {Array.from({ length: totalPages }, (_, i) => (
+                <option key={i + 1} value={i + 1} className="bg-[#8CC9D5] text-white">
+                  {i + 1}
                 </option>
               ))}
             </select>
@@ -131,8 +123,6 @@ const Gallery = () => {
               stroke="currentColor"
               strokeWidth="2"
               viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
@@ -141,6 +131,7 @@ const Gallery = () => {
       </div>
 
       <Newsletter />
+
       {modalImage && (
         <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
           <div className="relative max-w-[90%] max-h-[80%]">
@@ -158,8 +149,6 @@ const Gallery = () => {
           </div>
         </div>
       )}
-
-
     </div>
   );
 };
